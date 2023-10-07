@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flask Website</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .input-prompt {
+            margin-bottom: 10px;
+        }
+
+        .meme-image {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Flask Website</h1>
+        <form method="POST" action="/">
+            <input class="input-prompt" type="text" name="input_prompt" placeholder="Enter your input">
+            <button type="submit">Submit</button>
+        </form>
+        {% if meme_urls %}
+            <h2>Memes related to your prompt:</h2>
+            {% for meme_url in meme_urls %}
+                <img class="meme-image" src="{{ meme_url }}" alt="Meme Image">
+            {% endfor %}
+        {% endif %}
+    </div>
+</body>
+</html>
