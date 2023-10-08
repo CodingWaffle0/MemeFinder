@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Image Search</title>
+</head>
+<body>
+    <h1>Meme Image Search</h1>
+    <form method="POST">
+        <label for="subject">Enter a Subject:</label>
+        <input type="text" name="subject" id="subject" required>
+        <button type="submit">Search Memes</button>
+    </form>
+    <h2>Found Memes:</h2>
+    <div>
+        {% if images %}
+            <ul>
+                {% for image in images %}
+                    <li><img src="{{ image }}" alt="Meme"></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No memes found.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
