@@ -14,10 +14,10 @@
     </form>
     <h2>Found Memes:</h2>
     <div>
-        {% if images %}
+        {% if meme_urls %}
             <ul>
-                {% for image in images %}
-                    <li><img src="{{ image }}" alt="Meme"></li>
+                {% for url in meme_urls %}
+                    <li><img src="{{ url }}" alt="Meme"></li>
                 {% endfor %}
             </ul>
         {% else %}
