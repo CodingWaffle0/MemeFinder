@@ -3,26 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JK" crossorigin="anonymous">
+    
     <title>Meme Image Search</title>
 </head>
 <body>
-    <h1>Meme Image Search</h1>
-    <form method="POST">
-        <label for="subject">Enter a Subject:</label>
-        <input type="text" name="subject" id="subject" required>
-        <button type="submit">Search Memes</button>
-    </form>
-    <h2>Found Memes:</h2>
     <div>
-        {% if meme_urls %}
-            <ul>
-                {% for url in meme_urls %}
-                    <li><img src="{{ url }}" alt="Meme"></li>
+        <h1 class="mt-5 mb-4 text-center">Meme Image Search</h1>
+        <form method="POST" class="mb-4">
+            <div class="form-group">
+                <label for="subject">Enter a Subject:</label>
+                <input type="text" name="subject" id="subject" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Search Memes</button>
+        </form>
+        <h2 class="mb-3">Found Memes:</h2>
+        <div class="card-group">
+            {% if memes %}
+                {% for meme in memes %}
+                    <div class="card" style="max-width: 300px;">
+                        <img src="{{ meme }}" alt="Meme" class="card-img-top">
+                    </div>
                 {% endfor %}
-            </ul>
-        {% else %}
-            <p>No memes found.</p>
-        {% endif %}
+            {% else %}
+                <div class="col">
+                    <p>No memes found.</p>
+                </div>
+            {% endif %}
+        </div>
     </div>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper-base.min.js" integrity="sha384-+J4zvqXtJZJXJ9L8zqzvL5z5yJZz4Jy7JvJ4JZ3vzv7J7f8z5Q5xJZJzJZvZJz5+" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JK" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -35,7 +35,7 @@ def get_memes(word):
 def hello_world():
     if request.method == "POST":
         print(request.form["subject"])
-        return render_template('index.html', meme_urls = get_memes(request.form["subject"]))
+        return render_template('index.html', memes = get_memes(request.form["subject"]))
     else:
-        return render_template('index.html', meme_urls = [])
+        return render_template('index.html', memes = [])
     
